@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Enhance LogIn And GAS" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">EKEY-API-KEY</stringProp>
+              <stringProp name="Header.value">f09ae499-8628-4655-9a5b-aaa3c1e35735</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value"> application/json</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">test-gyldendalaccessservice.gyldendal.dk</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GetUserProfile" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;AuthenticationToken&quot;: &quot;cx3vNRo0b7+agBwF1yLdQ7/XUted4lufbeSJJdy0fXkdAWzdHI/eI9KRpFATttUUHT5d4S2ASdnya77KNq8LcAtj52yRzO7kFG5Jvn4OwgtWubPv0LP5pjWf6lPdhEr7DOG5LQlFducN1AysXtmd+4reSCUEf3+HTsM6pC2i7944djgX9vg7NCIrlUlX1On6jy2L9QSmIrF5yoaffs3DpE/wLAXtFwocCrqAt6BDosr0LkAmgXS0inKS9+aE4KoaWKnlDtEdWtzG0DgsocljYv3lGYCeYfK9h/5z23+ZIVETrcJOxAavrkqbqxBgmBcu5Wi3pEs0j0mQ7y7NJ6w9PCDnAwpy9c8kQWG05qvLLknE0XwyQCQ7vTvKsoOHuoAQYXJic8uaClRVVgdDip8AIpD3/oZeWrSkzuMwscNIwftGG5veolGACWarMkDT6K5RyPi+7e55skrqr9zcxdIk1/s6Kg3aCDoqyLUbUrTkH28ifSSFBKZPvmqBou0PAigC7RnLICIUZOC+hDNZ9rHYxFvZ9hyKzCzGPc3UHvb19PnOvM1uT/2mFwG+VVQcx+lkuAgVRag789D2SfZwaRnKOE17skmlLJIRhxD3omORPGeW21DAgiDBvt8o/4UIVzlyZFZcOogonOZVhCYNB4vqJwuKngl+/3YZVYzfKdAAFr0fN4LLNcRxd+HKj0aItIjd8nEk+BZgaipMtK0cahNCiPIEYku7t9Tv9lv+7TBQ+moB1I9Hk2DDR4gkLsCbkoS2q24A/vw2qf1sH+Rr7mWwFFCWzUoDiKkb8RHfTig5dk/k5LfnTIuhG2itViI4h99GPNqBrZgnqOr7JvvBOc2ldV2AqFhIOhmDDxmuuS4AMHWe6hnngYT21t+JTZS00/Um54L/oaPEcJnLi7p9mxEG+zn+XQEq/QSEaAju/4y/R0FFQULsI+E6ssrx+FEL15gsebwkswzybnOBfjVh4GTPybk81Aak49r/fOv+TJMggUcAhAnTpWeshbyxySzclFSqTCRKP9LfA023nSdpEq/4367PG8BRehm16TZGXHoODh2SGf6ctUcz7JKS9x5at49K/8sSzLGdRn04O6RCVuiPxj5kalH7hH4p9RGIwsSHO61DNmi2wxYZVMG9L1hMW26PEQzqb+KqWj8ZH8+WV6zif31djYfkCqPP72ggKCCac+SZHvIvOol6CNV0e3uNLoVLAW3c8Ch26PW4P0eNEdyFMCn5GSFdl0UlxUDOvN0uTL/k0N5kVmTgMrhTHYMWRyJgXmNELK9uV1sO6AOVdMfj1ZkAxsTZfZboE3OX6WSnzCSgtIG0gUVKdoE3Hyrrap6LvXCcq8FmUyAcKQ37QJdVwnE3efO5hHyAWXPdOGgYX3FGsVIcyDTz4+WvkH94wPMmyQd1x8Zb01s6tG1KIUDBwbauxsLv0FJ054pIvxcJuHCAx4IKnT/datRGArpLub+Svj6mtYamD4SWf8HEGE7cx7ZXGHNK2ja2fGl7GhfsW1OSgDcvLKw+aG/QHBCNR5G1VYOQtFQE95JTxKqYGbq+Fm1GE6Qo3AXNNg347CynzNT7lllQ3/dkp0nf9ZDQteB0sqWiUjgvINozY29nr9uIJQ==&#xd;
+&quot;,&#xd;
+  &quot;WebShop&quot;: &quot;2&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">api/v1/UserProfile</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
